@@ -97,15 +97,17 @@ CREATE TABLE Servicios (
 
 ---------------------------------------
 
-CREATE TABLE Pagos (
-    id_pago INT PRIMARY KEY AUTO_INCREMENT,
-    id_cliente INT,
-    id_terapia INT,
-    monto DECIMAL(8,2),
-    fecha_pago TIMESTAMP,
-    metodo_pago VARCHAR(50),
-    FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario),
-    FOREIGN KEY (id_terapia) REFERENCES Terapias(id_terapia)
+CREATE TABLE Facturas (
+    id_factura INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL,
+    telefono_cliente VARCHAR(15) NOT NULL,
+    correo_cliente VARCHAR(100) NOT NULL,
+    cedula_cliente VARCHAR(20) NOT NULL,
+    id_paquete INT(11) NOT NULL,
+    duracion_mes INT(2) NOT NULL,
+    fecha_pago DATETIME NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_paquete) REFERENCES Paquetes(id_paquete)
 );
 
 ---------------------------------------

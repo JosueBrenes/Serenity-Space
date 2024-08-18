@@ -77,7 +77,7 @@ function getPaqueteColor($nombre_paquete) {
             <?php endforeach; ?>
           </ul>
           <div class="pricing-table-item-footer">
-            <button class="btn-contratar" style="color: white;">Contratar</button>
+            <a href="pago.php?id_paquete=<?php echo $id_paquete; ?>" class="btn-contratar" style="color: white;">Contratar</a>
           </div>
         </div>
       <?php endforeach; ?>
