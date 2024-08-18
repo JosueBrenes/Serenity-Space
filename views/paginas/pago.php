@@ -87,6 +87,9 @@ while ($row = $result->fetch_assoc()) {
                     </select>
                 </div>
 
+                <!-- Campo oculto para la fecha y hora -->
+                <input type="hidden" id="fecha_pago" name="fecha_pago" value="<?php echo date('Y-m-d H:i:s'); ?>">
+
                 <button type="submit" class="btn btn-primary btn-block">Pagar</button>
             </form>
           </div>

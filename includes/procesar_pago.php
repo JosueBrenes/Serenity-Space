@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cedula_cliente = $_POST['cedula'] ?? '';
     $id_paquete = intval($_POST['id_paquete'] ?? 0);
     $duracion_mes = intval($_POST['duracion_mes'] ?? 0);
-    $fecha_pago = date('Y-m-d H:i:s');
+    $fecha_pago = $_POST['fecha_pago'] ?? ''; 
 
     // Verificar que los datos del formulario no están vacíos
-    if (empty($nombre_cliente) || empty($telefono_cliente) || empty($correo_cliente) || empty($cedula_cliente) || $id_paquete <= 0 || $duracion_mes <= 0) {
+    if (empty($nombre_cliente) || empty($telefono_cliente) || empty($correo_cliente) || empty($cedula_cliente) || $id_paquete <= 0 || $duracion_mes <= 0 || empty($fecha_pago)) {
         echo '<div class="alert alert-danger">Por favor, complete todos los campos del formulario correctamente.</div>';
         exit;
     }
@@ -76,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt_factura->close();
     $stmt_paquete->close();
     $conn->close();
+
+
 } else {
     echo '<div class="alert alert-danger">Método no permitido.</div>';
 }

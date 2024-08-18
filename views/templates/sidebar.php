@@ -6,6 +6,7 @@
     <a href="../citas/citas.php">Citas</a>
     <a href="../paquetes/paquetes.php">Paquetes</a>
     <a href="../servicios/servicios.php">Servicios</a>
+    <a href="../compras/facturas.php">Facturas</a>
     <div class="sidebar-footer">
         <a href="../../../public/index.php" class="btn btn-danger btn-logout">Salir</a>
     </div>
