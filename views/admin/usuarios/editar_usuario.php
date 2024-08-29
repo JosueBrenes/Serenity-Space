@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tipo_usuario = $_POST['tipo_usuario'];
     
     // Preparar la consulta SQL para actualizar datos
-    $sql = "UPDATE Usuarios SET nombre = ?, correo = ?, tipo_usuario = ? WHERE id_usuario = ?";
+    $sql = "UPDATE Usuarios SET nombre = ?, correo = ?, id_tipo_usuario = ? WHERE id_usuario = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssi", $nombre, $correo, $tipo_usuario, $id_usuario);
 
@@ -90,7 +90,7 @@ $result_tipo_usuario = $conn->query($sql_tipo_usuario);
                         <select id="tipo_usuario" name="tipo_usuario" class="form-control" required>
                             <?php while ($row_tipo_usuario = $result_tipo_usuario->fetch_assoc()): ?>
                                 <option value="<?php echo htmlspecialchars($row_tipo_usuario['id_tipo_usuario'], ENT_QUOTES); ?>"
-                                    <?php echo $row_tipo_usuario['id_tipo_usuario'] == $user['tipo_usuario'] ? 'selected' : ''; ?>>
+                                    <?php echo $row_tipo_usuario['id_tipo_usuario'] == $user['id_tipo_usuario'] ? 'selected' : ''; ?>>
                                     <?php echo htmlspecialchars($row_tipo_usuario['nombre'], ENT_QUOTES); ?>
                                 </option>
                             <?php endwhile; ?>

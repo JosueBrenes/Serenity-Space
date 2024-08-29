@@ -44,7 +44,7 @@
         >Contáctenos</a
       >
       <?php if ($isAdmin): ?>
-        <a href="../../views/admin/dashboard.php" class="btn-login">Administrar</a>
+        <a href="../views/admin/dashboard.php" class="btn-login">Administrar</a>
       <?php endif; ?>
     </nav>
   </header>

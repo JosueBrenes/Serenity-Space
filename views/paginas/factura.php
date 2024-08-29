@@ -2,15 +2,12 @@
 <html lang="es">
 <head>
   <?php include '../templates/head.php'; ?>
-  <link rel="stylesheet" href="../css/styles.css"> <!-- Asegúrate de incluir tu archivo CSS -->
-  <!-- Incluye Bootstrap CSS si no lo tienes en head.php -->
+  <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <!-- Header -->
   <?php include '../templates/header.php'; ?>
 
-  <!-- Contenido principal -->
   <section class="thank-you">
     <div class="container mt-5">
       <h2 class="text-center">¡Pago Exitoso!</h2>
@@ -38,10 +35,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <?php include '../templates/footer.php'; ?>
 
-  <!-- Incluye Bootstrap JS y dependencias si no los tienes en head.php -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -14,6 +14,13 @@ CREATE TABLE Estado_Cita (
 
 ---------------------------------------
 
+CREATE TABLE Especialidades (
+    id_especialidad INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) UNIQUE
+);
+
+---------------------------------------
+
 CREATE TABLE Usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
@@ -32,13 +39,6 @@ CREATE TABLE Terapeutas (
     id_especialidad INT,
     correo VARCHAR(100),
     FOREIGN KEY (id_especialidad) REFERENCES Especialidades(id_especialidad)
-);
-
----------------------------------------
-
-CREATE TABLE Especialidades (
-    id_especialidad INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) UNIQUE
 );
 
 ---------------------------------------
@@ -62,7 +62,7 @@ CREATE TABLE Citas (
     FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario),
     FOREIGN KEY (id_terapeuta) REFERENCES Terapeutas(id_terapeuta),
     FOREIGN KEY (id_terapia) REFERENCES Terapias(id_terapia),
-    FOREIGN KEY (id_estado) REFERENCES Estado_Cita(id_estado) 
+    FOREIGN KEY (id_estado) REFERENCES Estado_Cita(id_estado)
 );
 
 ---------------------------------------
@@ -124,6 +124,14 @@ INSERT INTO Estado_Cita (estado) VALUES ('cancelada');
 
 ---------------------------------------
 
+INSERT INTO Especialidades (nombre) VALUES ('Psicología Clínica');
+INSERT INTO Especialidades (nombre) VALUES ('Psicoterapia Cognitivo-Conductual');
+INSERT INTO Especialidades (nombre) VALUES ('Psicología Infantil');
+INSERT INTO Especialidades (nombre) VALUES ('Psicología Deportiva');
+INSERT INTO Especialidades (nombre) VALUES ('Psicología de Pareja');
+
+---------------------------------------
+
 INSERT INTO Paquetes (nombre, precio, descripcion) VALUES
 ('Paquete Inicial', 35.00, 'Paquete básico para nuevas consultas.'),
 ('Paquete Profesional', 65.00, 'Paquete con consultas ilimitadas y seguimiento continuo.'),
@@ -172,13 +180,13 @@ VALUES ('Ana Gómez', 'ana@example.com', 'password456', 2);
 
 ---------------------------------------
 
-INSERT INTO Terapeutas (nombre, especialidad)
+INSERT INTO Terapeutas (nombre, apellido, id_especialidad, correo) 
 VALUES
-('Terapeuta 1', 'Psicología'),
-('Terapeuta 2', 'Psiquiatría'),
-('Terapeuta 3', 'Terapia familiar'),
-('Terapeuta 4', 'Terapia cognitivo-conductual'),
-('Terapeuta 5', 'Mindfulness');
+('Terapeuta 1', 'Apellido 1', 1, 'terapeuta1@example.com'),
+('Terapeuta 2', 'Apellido 2', 2, 'terapeuta2@example.com'),
+('Terapeuta 3', 'Apellido 3', 3, 'terapeuta3@example.com'),
+('Terapeuta 4', 'Apellido 4', 4, 'terapeuta4@example.com'),
+('Terapeuta 5', 'Apellido 5', 5, 'terapeuta5@example.com');
 
 ---------------------------------------
 
@@ -191,14 +199,6 @@ VALUES
 ('Psicoterapia Gestalt', 'Enfoque terapéutico que enfatiza la importancia del "aquí y ahora".', 85.00);
 
 ---------------------------------------
-
-INSERT INTO Especialidades (nombre) VALUES ('Psicología Clínica');
-INSERT INTO Especialidades (nombre) VALUES ('Psicoterapia Cognitivo-Conductual');
-INSERT INTO Especialidades (nombre) VALUES ('Psicología Infantil');
-INSERT INTO Especialidades (nombre) VALUES ('Psicología Deportiva');
-INSERT INTO Especialidades (nombre) VALUES ('Psicología de Pareja');
-
-----------------------------------------
 
 INSERT INTO Servicios (nombre, descripcion, caracteristicas, id_paquete) VALUES
 ('Psicoterapia Individual', 'Apoyo profesional personalizado para enfrentar retos emocionales.', 'Terapia cognitivo-conductual, Técnicas de relajación', 1),

@@ -2,7 +2,7 @@
 // Configuración de conexión a la base de datos
 $servername = "localhost"; 
 $username = "root";
-$password = "";
+$password = "admin";
 $dbname = "serenity_space";
 
 // Crear conexión
